@@ -1,0 +1,11 @@
+#服务启动端口号。钉钉云ECS目前只开放80和22端口
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://192.168.0.27:1433;databaseName=ecology
+    username: bin
+    password: wdhbb2016
+
+

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.SalaryMapper">
+
+	<resultMap type="com.vo.Salary" id="BaseResultMap">
+		<result property="employeeNum"         column="员工编号"      />
+		<result property="month"               column="月份"        />
+		<result property="department"          column="工作部门"       />
+		<result property="salaryRange"         column="工资级别"     />
+		<result property="attendancePayBase"   column="全勤奖2基数"/>
+		<result property="planTargetAward"     column="预定目标奖"      />
+		<result property="overtimeAllowance"   column="平时加班补贴"        />
+		<result property="weekendAllowance"    column="周末加班补贴"       />
+		<result property="performanceBase1"    column="绩效基数1"     />
+		<result property="performanceBase2"    column="绩效基数2"/>
+		<result property="performanceBase3"    column="绩效基数3"      />
+		<result property="performanceRange1"   column="绩效等级1"        />
+		<result property="performanceRange2"   column="绩效等级2"       />
+		<result property="performanceRange3"   column="绩效等级3"     />
+		<result property="beAttendance"        column="应出勤小时"/>
+		<result property="realAttendance"      column="实出勤小时"      />
+		<result property="regularWage"         column="正班工资"        />
+		<result property="workOvertimeHours"   column="平时加班"       />
+		<result property="workOvertimePay"     column="平时加班费"     />
+		<result property="weekendHours"        column="周末加班"/>
+		<result property="restOvertimePay"     column="休息日加班费"        />
+		<result property="holidayOvertime"     column="节日加班"      />
+		<result property="holidayPay"          column="节日加班费"       />
+		<result property="targetAward"         column="目标奖"     />
+		<result property="attendancePay2"      column="全勤奖2"/>
+		<result property="presentScore"        column="合规性表现奖分"     />
+		<result property="presentBonus"        column="合规性表现奖金"/>
+		<result property="longevityPay"        column="工龄补贴"      />
+		<result property="nightDifferential"   column="夜班津贴"        />
+		<result property="temperaturePay"      column="高温补贴"       />
+		<result property="kpiPerformance"      column="KPI绩效奖"     />
+		<result property="otherPay"            column="其他补贴"/>
+		<result property="housingPay"          column="房补"      />
+		<result property="otherPerformance"    column="其它绩效"        />
+		<result property="educationSubsidy"    column="学历补贴"       />
+		<result property="safetyBonus"         column="安全奖金"     />
+		<result property="produceBonus"        column="生产奖金"/>
+		<result property="nightShiftFee"       column="夜班费用"      />
+		<result property="payableAmount"      column="应发金额"        />
+		<result property="deductAttendance"    column="扣全勤奖"       />
+		<result property="deductAbsent"        column="扣迟早旷"     />
+		<result property="presentDeduction"    column="合规性表现扣分"/>
+		<result property="unitEndowment"       column="养老单位缴纳"       />
+		<result property="unitIndustrial"      column="工伤单位缴纳"     />
+		<result property="unitUnemployment"    column="失业单位缴纳"/>
+		<result property="unitMedical"         column="医疗单位缴纳"       />
+		<result property="unitMaternity"       column="生育单位缴纳"     />
+		<result property="unitAccumulation"    column="公积金单位缴纳"/>
+		<result property="presentChargeback"   column="合规性表现扣款"       />
+		<result property="deductEndowment"     column="扣社保养老"     />
+		<result property="deductMedical"       column="扣社保医疗"/>
+		<result property="deductUnemployment"  column="扣社保失业险"     />
+		<result property="deductAccumulation"  column="扣社保公积金"/>
+		<result property="socialInsurance"     column="扣公积金"       />
+		<result property="cardReplacement"     column="补卡扣款"     />
+		<result property="personalTax"         column="本月个税"/>
+		<result property="utilities"           column="水电费"       />
+		<result property="deductUtilities"     column="扣水电费"     />
+		<result property="drinkingWater"       column="实扣饮用水"/>
+		<result property="rent"                column="房租"       />
+		<result property="deductRent"          column="扣住宿费"     />
+		<result property="deductMeals"         column="扣伙食费"/>
+		<result property="deductOther"         column="扣其他"       />
+		<result property="paidWage"            column="实发金额"     />
+		<result property="signStatus"          column="签收状态"/>
+		<result property="userId"              column="dd_userid"/>
+		<result property="unusualContent"      column="UnusualContent"/>
+
+	</resultMap>
+
+	<select id="selectSalaryById" resultType="com.vo.Salary" parameterType="java.lang.String">
+		select 员工编号 AS employeeNum,
+		月份 AS month,
+		工作部门 AS department,
+		工资级别 AS salaryRange,
+		全勤奖2基数 AS attendancePayBase,
+		预定目标奖 AS planTargetAward,
+		平时加班补贴 AS overtimeAllowance,
+		周末加班补贴 AS weekendAllowance,
+		绩效基数1 AS performanceBase1,
+		绩效基数2 AS performanceBase2,
+		绩效基数3 AS performanceBase3,
+		绩效等级1 AS performanceRange1,
+		绩效等级2 AS performanceRange2,
+		绩效等级3 AS performanceRange3,
+		应出勤小时 AS beAttendance,
+		实出勤小时 AS realAttendance,
+		正班工资 AS regularWage,
+		平时加班 AS workOvertimeHours,
+		平时加班费 AS workOvertimePay,
+		周末加班 AS weekendHours,
+		休息日加班费 AS restOvertimePay,
+		节日加班 AS holidayOvertime,
+		节日加班费 AS holidayPay,
+		目标奖 AS targetAward,
+		全勤奖2 AS attendancePay2,
+		合规性表现奖分 AS presentScore,
+		合规性表现奖金 AS presentBonus,
+		工龄补贴 AS longevityPay,
+		夜班津贴 AS nightDifferential,
+		高温补贴 AS temperaturePay,
+		KPI绩效奖 AS kpiPerformance,
+		其他补贴 AS otherPay,
+		房补 AS housingPay,
+		其它绩效 AS otherPerformance,
+		学历补贴 AS educationSubsidy,
+		安全奖金 AS safetyBonus,
+		生产奖金 AS produceBonus,
+		夜班费用 AS nightShiftFee,
+		应发金额 AS payableAmount,
+		扣全勤奖 AS deductAttendance,
+		扣迟早旷 AS deductAbsent,
+		合规性表现扣分 AS presentDeduction,
+		养老单位缴纳 AS unitEndowment,
+		工伤单位缴纳 AS unitIndustrial,
+		失业单位缴纳 AS unitUnemployment,
+		医疗单位缴纳 AS unitMedical,
+		生育单位缴纳 AS unitMaternity,
+		公积金单位缴纳 AS unitAccumulation,
+		合规性表现扣款 AS presentChargeback,
+		扣社保养老 AS deductEndowment,
+		扣社保医疗 AS deductMedical,
+		扣社保失业险 AS deductUnemployment,
+		扣社保公积金 AS deductAccumulation,
+		扣公积金 AS socialInsurance,
+		补卡扣款 AS cardReplacement,
+		本月个税 AS personalTax,
+		水电费 AS utilities,
+		扣水电费 AS deductUtilities,
+		实扣饮用水 AS drinkingWater,
+		房租 AS rent,
+		扣住宿费 AS deductRent,
+		扣伙食费 AS deductMeals,
+		扣其他 AS deductOther,
+		实发金额 AS paidWage
+			from EHR.hrserver.dbo.V_SalaryrecordApp
+			where dd_userid=#{userId}
+	</select>
+	<update id="updateStatusSalaryById"  parameterType="java.lang.String">
+		 update a
+			<set>
+				<if test="signStatus != null and signStatus != ''"> 签收状态 = #{signStatus},</if>
+				<if test="unusualContent != null and unusualContent != ''"> UnusualContent = #{unusualContent}</if>
+			</set>
+			FROM EHR.hrserver.dbo.SalaryrecordApp a INNER JOIN EHR.hrserver.dbo.v_SalaryrecordApp b
+			ON a.员工编号=b.员工编号
+			WHERE b.dd_userid=#{userId}
+	</update>
+</mapper> 
